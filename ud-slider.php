@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Ud Slider
- * Plugin URI: http://www.example.com/ud-slider
+ * Plugin URI: https://github.com/yudhisthirnahar/ud-slider
  * Description: Image Slider
  * Version: 1.0
  * Author: Yudhisthir Nahar
- * Author URI: http://www.example.com
+ * Author URI: https://github.com/yudhisthirnahar
  *
  * @package Ud slider
  */
@@ -100,7 +100,7 @@ function ud_slider_options_page() {
 				update_option( 'ud_slider_images', $ud_uploaded_files );
 			}
 		}
-	} elseif ( ! empty( $_POST['ud_slider_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ud_slider_nonce_field'] ) ), 'ud_slider_save' ) && isset( $_POST['ud_slider_images_options'] ) ) {
+	} elseif ( ! empty( $_POST['ud_slider_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ud_slider_nonce_field'] ) ), 'ud_slider_save' ) && ! empty( $_POST['ud_slider_images_options'] ) ) {
 
 			$ud_slider_images  = sanitize_text_field( $_POST['ud_slider_images_options'] );
 			$ud_uploaded_files = json_decode( stripslashes( $ud_slider_images ), true );
