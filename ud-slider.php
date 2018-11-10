@@ -160,6 +160,17 @@ function ud_slider_includes() {
 add_action( 'wp_footer', 'ud_slider_includes' );
 
 /**
+ * Add bxslider init.
+ */
+function ud_slider_init_js() {
+	echo '<script>jQuery(document).ready(function ($) {      
+			jQuery(".ud-slider").bxSlider();
+		});</script>';
+
+}
+add_action( 'wp_footer', 'ud_slider_init_js' );
+
+/**
  * Create slider shortcode.
  */
 function ud_slider_shortcode() {
@@ -181,12 +192,7 @@ function ud_slider_shortcode() {
 	<?php
 
 	do_action( 'ud_slider_includes' );
-
-	echo (
-		'<script>jQuery(document).ready(function ($) {      
-            jQuery(".ud-slider").bxSlider();
-    });</script>'
-	);
+	do_action( 'ud_slider_init_js' );
 
 	return ob_get_clean();
 }
