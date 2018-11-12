@@ -60,9 +60,8 @@ function ud_handle_attachment( $file_handler, $post_id, $set_thu = false ) {
  * Save Uploads Or Options Settings.
  */
 function ud_slider_options_page() {
+	wp_enqueue_script( 'jquery-ui-sortable' );
 
-	wp_enqueue_style( 'jquery-ui-style', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css', array( 'jquery' ), '1.0', false );
-	wp_enqueue_script( 'jquery-ui-core', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js', array( 'jquery' ), '1.0', false );
 	$ud_uploaded_files = array();
 	if ( ! empty( get_option( 'ud_slider_images' ) ) ) {
 		$ud_uploaded_files = get_option( 'ud_slider_images' );
